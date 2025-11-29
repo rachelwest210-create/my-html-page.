@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Wunmi 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+  background:#ffe4f2;
+  overflow-x:hidden;
+}
+
+/* LOCK SCREEN */
+#lockScreen{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:linear-gradient(180deg,#ffd6e8,#ffbcd9);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  z-index:999;
+  transition:0.6s;
+}
+
+.lockBox{
+  background:white;
+  padding:30px 25px;
+  border-radius:20px;
+  width:85%;
+  max-width:340px;
+  box-shadow:0 10px 25px rgba(255,72,132,0.25);
+  text-align:center;
+  animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+  0%{transform:scale(0.8);opacity:0;}
+  100%{transform:scale(1);opacity:1;}
+}
+
+.lockBox h2{
+  color:#ff4e88;
+  font-family:"Great Vibes", cursive;
+  font-size:32px;
+  margin:0 0 10px 0;
+}
+
+#passInput{
+  width:70%;
+  padding:10px;
+  border-radius:12px;
+  border:2px solid #ffb3d0;
+  font-size:20px;
+  outline:none;
+  text-align:center;
+}
+
+.unlockBtn{
+  margin-top:14px;
+  padding:10px 16px;
+  background:#ff4e88;
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:600;
+}
+
+.shake{
+  animation:shake 0.4s;
+}
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  50%{transform:translateX(6px)}
+  75%{transform:translateX(-6px)}
+  100%{transform:translateX(0)}
+}
+
+#wrong{
+  color:#ff4e88;
+  height:22px;
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* ANNIVERSARY MESSAGE SCREEN */
+#messageScreen{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:#ffe9f4;
+  padding:30px 20px;
+  text-align:center;
+  display:none;
+  overflow-y:auto;
+  animation:fadeIn 0.8s ease;
+  box-sizing:border-box;
+}
+
+#messageScreen::-webkit-scrollbar {
+  width:6px;
+}
+#messageScreen::-webkit-scrollbar-thumb {
+  background:#ff4e88;
+  border-radius:3px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+#messageScreen h1{
+  font-size:32px;
+  color:#ff4e88;
+  font-family:"Great Vibes", cursive;
+  margin-bottom:20px;
+}
+
+.messageText{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 8px 22px rgba(255,72,132,0.25);
+  line-height:1.6;
+  color:#444;
+  font-size:16px;
+  text-align:left;
+  max-width:700px;
+  margin:0 auto;
+}
+
+/* Swipe button */
+.swipeBtn{
+  margin-top:25px;
+  width:80%;
+  max-width:300px;
+  background:#ff4e88;
+  color:white;
+  padding:12px 18px;
+  border-radius:50px;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  outline:none;
+}
+
+/* TEDDY SCREEN REMOVED — replaced with pink screen */
+#teddyScreen{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:#ffd4e6;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  animation:fadeIn 1s ease;
+}
+
+/* LOVE POPUP */
+#lovePopup{
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  background:white;
+  color:#ff4e88;
+  width:85%;
+  max-width:380px;
+  padding:35px 30px;
+  border-radius:30px;
+  font-family:"Poppins", sans-serif;
+  font-size:20px;
+  font-weight:600;
+  text-align:center;
+  box-shadow:0 8px 22px rgba(255,72,132,0.3);
+  z-index:1000;
+  display:none;
+  position:fixed;
+}
+
+/* Heart animation */
+.heart{
+  position:absolute;
+  width:18px;height:18px;
+  background:#ff4e88;
+  clip-path: polygon(50% 0%, 61% 15%, 75% 15%, 85% 30%, 85% 45%, 50% 80%, 15% 45%, 15% 30%, 25% 15%, 39% 15%);
+  animation:floatUp 2.4s linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0); opacity:1;}
+  50%{transform:translateY(-60px) scale(1);}
+  100%{transform:translateY(-130px) scale(0); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <div class="lockBox" id="lockCard">
+    <h2>Hi Wunmi 💗</h2>
+    <p>enter our secret code</p>
+    <input id="passInput" type="password" placeholder="••••" maxlength="10">
+    <button class="unlockBtn" onclick="unlock()">Unlock</button>
+    <div id="wrong"></div>
+  </div>
+</div>
+
+<!-- ANNIVERSARY MESSAGE -->
+<div id="messageScreen">
+  <h1>happy anniversaryyy baby 💗</h1>
+
+  <div class="messageText">
+    My sweet babyyyyyyyyy… happy anniversary to the most amazing person in my life 😭💕…My angel… words have failed me again like they always do whenever it comes to you. Every time I think about how far we’ve come, I’m reminded of how lucky I am to have you by my side. You’re not just my lie lie girlfriend. You’re the person who makes every day feel lighter and sweeter just by being in it.
+    <br><br>
+    I love youuuuuu sooo muchhhh. Sometimes it feels like my chest can’t even hold everything I feel for you, it’s crazy frrr…I can’t wait to keep making memories with you, to hold you close in every moment life gives us, to cherish every momenttt with youuu, to be yoursss alwaysss and you mine. I would trade you for absolutely nothingggg💕
+    <br><br>
+    Here’s to you. Here’s to us. Here’s to every anniversaryyyyy ahead of us. I loveeeee you more than words can ever say. I love you more than I could ever express fr….Even saying I’m in love with you doesn’t feel like it’s enough. It will never fully describe what you are to me and what my heart does when I think about you.😫
+    <br><br>
+    I’m so grateful to have you in my life, my sweet sweet girlll. Thank youuu my queen for being mine. Thank you for choosing me. Thank you for loving me the way you do. I love you with everything I am, today and always.🥺🤭💕
+  </div>
+
+  <button class="swipeBtn" onclick="showTeddies()">Swipe to continue →</button>
+</div>
+
+<!-- PINK SCREEN INSTEAD OF TEDDIES -->
+<div id="teddyScreen">
+  <button class="swipeBtn" onclick="showLovePopup()">Swipe for more love →</button>
+</div>
+
+<!-- LOVE POPUP -->
+<div id="lovePopup">
+  I love youuuuuuuuu sooooooo muchhhhh my babyyyy😭💕  
+  You mean the world to me💕.  
+ 
+</div>
+
+<script>
+function unlock(){
+  const input = document.getElementById("passInput").value;
+  if(input === "2910"){
+    document.getElementById("lockScreen").style.opacity="0";
+    setTimeout(()=>{ 
+      document.getElementById("lockScreen").style.display="none";
+      document.getElementById("messageScreen").style.display="block";
+    },500);
+  } else {
+    document.getElementById("wrong").innerText="try again baby";
+    const card = document.getElementById("lockCard");
+    card.classList.remove("shake");
+    void card.offsetWidth;
+    card.classList.add("shake");
+  }
+}
+
+function showTeddies(){
+  document.getElementById("messageScreen").style.display="none";
+  document.getElementById("teddyScreen").style.display="flex";
+}
+
+function showLovePopup(){
+  const popup = document.getElementById("lovePopup");
+  popup.style.display="block";
+  popup.style.transform="translate(-50%,-50%) scale(1)";
+  
+  // MASSIVE heart explosion
+  for(let i=0;i<80;i++){
+    const heart = document.createElement('div');
+    heart.className='heart';
+    heart.style.left = `${Math.random()*100}%`;
+    heart.style.top = `${Math.random()*100}%`;
+    heart.style.animationDelay = `${Math.random()*2}s`;
+    popup.appendChild(heart);
+    setTimeout(()=>heart.remove(),2400);
+  }
+}
+</script>
+
+</body>
+</html>
